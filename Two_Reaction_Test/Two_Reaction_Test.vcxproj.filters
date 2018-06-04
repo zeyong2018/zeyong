@@ -44,5 +44,8 @@
     <ClCompile Include="globalPlasmaModel.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Test_Newton.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

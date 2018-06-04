@@ -65,6 +65,76 @@ void Jacobian_F(int n, double *y, double **jacobian)
 	jacobian[2][2] = -Ec1 * n_ar*n_e * dk1dte - k2 * n_arplus* dewdte;
 }
 
+/*Target Function in Solving ODE System*/
+void targetFunc_ODE(int n, double *y, double *y_old, double dh, double *F)
+{
+	double k1, n_ar, n_e, n_arplus, V, Ew,Te;
+	n_ar = *(y + 0);
+	n_arplus = *(y + 1);
+	Te = *(y + 2);
+	n_e = n_arplus;
+
+	double n_ar_old, n_arplus_old, n_e_old, Te_old;
+	n_ar_old = *(y_old + 0);
+	n_arplus_old = *(y_old + 1);
+	Te_old = *(y_old + 2);
+	n_e_old = n_arplus_old;
+
+
+	V = PI * pow(R, 2.)*L;
+	k1 = k1_cacl(n, y);
+	Ew = Ew_cacl(n, y);
+	*(F + 0) = n_ar-n_ar_old- dh*( qin / V - k1 * n_ar*n_e - k_pump * n_ar + k2 * n_arplus);
+	*(F + 1) = n_arplus-n_arplus_old-dh*(-k2 * n_arplus + k1 * n_ar*n_e);
+	*(F + 2) = Te - Te_old - dh * (2. / 3.*p_abs / V / (n_e + TINY) - 2. / 3.* Ec1 * k1*n_ar - 2. / 3.*Ew * k2 - Te * (-k2 + k1 * n_ar));
+}
+
+/*Jacobian Matrix in Solving ODE System*/
+void Jacobian_G(int n, double *y, double dh, double **jacobian)
+{
+	double n_ar, n_arplus, n_e, Te, k1, Ew;
+	n_ar = *(y + 0);
+	n_arplus = *(y + 1);
+	n_e = n_arplus;
+	Te = *(y + 2);
+	k1 = k1_cacl(n, y);
+	Ew = Ew_cacl(n, y);
+
+	double V;
+
+	V = PI * pow(R, 2.)*L;
+
+	double dk1dte, dewdte;
+	dk1dte = (7.93e-14)*exp(-18.9 / (Te + TINY))*18.9 / pow(Te + TINY, 2.);
+	dewdte = 2. + 1. / 2 * (1 + log(m_arplus / 2 / PI / me));
+
+	jacobian[0][0] = 1.- dh*(-k1 * n_e - k_pump);
+	jacobian[0][1] = -dh*(-k1 * n_ar + k2);
+	jacobian[0][2] = -dh*(-n_ar * n_e * dk1dte);
+	jacobian[1][0] =-dh* (k1 * n_e);
+	jacobian[1][1] = 1.-dh*(-k2 + k1 * n_ar);
+	jacobian[1][2] = -dh*(n_ar * n_e * dk1dte);
+	jacobian[2][0] = -dh*(-2./3*Ec1 * k1-Te*k1);
+	jacobian[2][1] = -dh*(-2./3*p_abs/V/(pow(n_e,2.)+TINY));
+	jacobian[2][2] = 1.-dh*(-2./3*Ec1*n_ar*dk1dte-2./3.*k2*dewdte-(-k2+k1*n_ar)-Te*n_ar*dk1dte);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*
 	gaussElimination() solves Ax=b
 */
@@ -152,11 +222,15 @@ void gaussElimination(int n, double **A, double *b, double *x)
 
 }
 
-void dmatrix(double **A, int n) 
+double ** dmatrix(int m, int n) 
 {
-	A = (double **)malloc(3 * sizeof(double *));
-	for (int i = 0; i < 3; i++)
+	double **A;
+	A = (double **)malloc(m * sizeof(double *));
+	for (int i = 0; i < m; i++)
 	{
-		A[i] = (double *)malloc(3 * sizeof(double));
+		A[i] = (double *)malloc(n * sizeof(double));
 	}
+	return A;
 }
+
+
