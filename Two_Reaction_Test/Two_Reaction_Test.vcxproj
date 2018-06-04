@@ -1,0 +1,397 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>15.0</VCProjectVersion>
+    <ProjectGuid>{F94F956C-337A-402F-84F3-AA2CE0F1E404}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>TwoReactionTest</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\..\Desktop\INC\ab_mou.h" />
+    <ClInclude Include="..\..\..\..\Desktop\INC\approx.h" />
+    <ClInclude Include="..\..\..\..\Desktop\INC\awp.h" />
+    <ClInclude Include="..\..\..\..\Desktop\INC\bikub.h" />
+    <ClInclude Include="..\..\..\..\Desktop\INC\bios_pc.h" />
+    <ClInclude Include="..\..\..\..\Desktop\INC\brown.h" />
+    <ClInclude Include="..\..\..\..\Desktop\INC\bspline.h" />
+    <ClInclude Include="..\..\..\..\Desktop\INC\bulirsch.h" />
+    <ClInclude Include="..\..\..\..\Desktop\INC\cg.h" />
+    <ClInclude Include="..\..\..\..\Desktop\INC\choband.h" />
+    <ClInclude Include="..\..\..\..\Desktop\INC\cnum.h" />
+    <ClInclude Include="..\..\..\..\Desktop\INC\cnumgraf.h" />
+    <ClInclude Include="..\..\..\..\Desktop\INC\cuthill.h" />
+    <ClInclude Include="..\..\..\..\Desktop\INC\difrom.h" />
+    <ClInclude Include="..\..\..\..\Desktop\INC\einb_rk.h" />
+    <ClInclude Include="..\..\..\..\Desktop\INC\einschr.h" />
+    <ClInclude Include="..\..\..\..\Desktop\INC\fadsor.h" />
+    <ClInclude Include="..\..\..\..\Desktop\INC\fft.h" />
+    <ClInclude Include="..\..\..\..\Desktop\INC\flaguer.h" />
+    <ClInclude Include="..\..\..\..\Desktop\INC\ftrdiasy.h" />
+    <ClInclude Include="..\..\..\..\Desktop\INC\fzeroin.h" />
+    <ClInclude Include="..\..\..\..\Desktop\INC\fzytrdsy.h" />
+    <ClInclude Include="..\..\..\..\Desktop\INC\gax.h" />
+    <ClInclude Include="..\..\..\..\Desktop\INC\gear.h" />
+    <ClInclude Include="..\..\..\..\Desktop\INC\glsp.h" />
+    <ClInclude Include="..\..\..\..\Desktop\INC\happrans.h" />
+    <ClInclude Include="..\..\..\..\Desktop\INC\hrmsplin.h" />
+    <ClInclude Include="..\..\..\..\Desktop\INC\implruku.h" />
+    <ClInclude Include="..\..\..\..\Desktop\INC\kubatur.h" />
+    <ClInclude Include="..\..\..\..\Desktop\INC\kubsplin.h" />
+    <ClInclude Include="..\..\..\..\Desktop\INC\legendre.h" />
+    <ClInclude Include="..\..\..\..\Desktop\INC\linpack.h" />
+    <ClInclude Include="..\..\..\..\Desktop\INC\newtip.h" />
+    <ClInclude Include="..\..\..\..\Desktop\INC\nlappphi.h" />
+    <ClInclude Include="..\..\..\..\Desktop\INC\nlglstst.h" />
+    <ClInclude Include="..\..\..\..\Desktop\INC\ratint.h" />
+    <ClInclude Include="..\..\..\..\Desktop\INC\rk_fehl.h" />
+    <ClInclude Include="..\..\..\..\Desktop\INC\rwp.h" />
+    <ClInclude Include="..\..\..\..\Desktop\INC\shepard.h" />
+    <ClInclude Include="..\..\..\..\Desktop\INC\splintab.h" />
+    <ClInclude Include="..\..\..\..\Desktop\INC\spliwert.h" />
+    <ClInclude Include="..\..\..\..\Desktop\INC\subsplin.h" />
+    <ClInclude Include="..\..\..\..\Desktop\INC\tfunc1.h" />
+    <ClInclude Include="..\..\..\..\Desktop\INC\thinplat.h" />
+    <ClInclude Include="..\..\..\..\Desktop\INC\tnfct1.h" />
+    <ClInclude Include="..\..\..\..\Desktop\INC\t_dgls.h" />
+    <ClInclude Include="..\..\..\..\Desktop\INC\t_einsch.h" />
+    <ClInclude Include="..\..\..\..\Desktop\INC\t_rwp.h" />
+    <ClInclude Include="..\..\..\..\Desktop\INC\u_proto.h" />
+    <ClInclude Include="..\..\..\..\Desktop\INC\vmblock.h" />
+    <ClInclude Include="..\..\..\..\Desktop\INC\zeigkrv2.h" />
+    <ClInclude Include="..\..\..\..\Desktop\INC\zeigkurv.h" />
+    <ClInclude Include="basis.h" />
+    <ClInclude Include="globalPlasmaModel.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="System.h" />
+    <ClInclude Include="targetver.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\ab_mou.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\akitst.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\approx.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\awp.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\basis.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\bezier.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\bikub.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\brown.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\browntst.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\bspl2tst.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\bspline.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\bsplitst.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\bulirsch.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\cg.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\cgtst.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\choband.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\clencurt.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\cuthill.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\cuttst.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\difrom.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\difsptst.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\dummy.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\einb_rk.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\einschr.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\fadsor.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\fband.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\fbando.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\fbauhube.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\fcholy.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\fcond.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\fdiag5.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\fdiag5pd.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\feigen.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\fft.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\fftbtst.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\ffttst.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\fgauss.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\fhouse.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\fibikub.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\flaguer.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\fmises.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\fmueller.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\fnewt.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\fnewton.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\fpack.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\fpegasus.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\fpivot.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\froots.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\fseidel.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\ftdiag.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\ftrdiasy.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\fzdiag.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\fzeroin.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\fzyfsy.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\fzytrdsy.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\f_beisp.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\gax.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\gax_tst.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\gear.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\gfqtst.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\glsp.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\h123.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\happrans.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\happrtst.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\hbezier.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\hbi2val.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\hbikub1.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\hbikub3.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\hdifrom.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\hermitst.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\hfibik.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\hglsp.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\hglsppa.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\hglsptr.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\hmokub.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\hnewtip.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\hratint.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\hrech.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\hrmsplin.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\implruku.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\jdel.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\k3gan_t1.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\k3nec_t1.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\k4gau_t1.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\k4gau_t2.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\k4gau_t3.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\k4nec_t1.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\k4rob_t1.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\kubgauss.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\kubnec.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\kubsplin.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\legendre.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\leg_tst.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\linpack.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\mfdicht.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\mffako.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\mffakon.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\mfourn.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\mgear.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\mshepard.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\m_ab_mou.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\m_awp.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\m_bulir.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\m_einbrk.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\m_einsch.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\m_implrk.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\m_rk_feh.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\m_rwp.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\newtip.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\nlappphi.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\nlapptst.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\nlglstst.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\opoltst.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\parmitst.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\parsptst.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\quanec.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\quarom.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\ratint.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\renntst.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\rffttst.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\rk_fehl.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\rwp.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\shepard.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\splintab.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\splintst.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\spliwert.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\spltrtst.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\stgew.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\subsplin.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\tadsor.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\tband.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\tbauhube.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\tcholy.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\tcond.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\tdiag5.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\tdiag5pd.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\teigen.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\tfunc1.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\tgauss.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\thinplat.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\thnpltst.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\thouse.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\tlaguer.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\tmat.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\tmises.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\tmueller.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\tnewmod.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\tnewpol.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\tnewt.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\tnewton.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\tnfct1.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\tpegasus.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\tpivot.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\tpol.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\trandmat.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\troots.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\tseidel.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\ttdiag.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\ttrdiasy.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\tunpack.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\tzdiag.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\tzeroin.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\tzytrdsy.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\t_dgls.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\t_einsch.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\t_rwp.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\vmblock.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\zeigkrv2.c" />
+    <ClCompile Include="..\..\..\..\Desktop\SOURCEC\zeigkurv.c" />
+    <ClCompile Include="globalPlasmaModel.c" />
+    <ClCompile Include="stdafx.c">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="System.c" />
+    <ClCompile Include="Two_Reaction_Test.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\..\..\..\Desktop\SOURCEC\beginning.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\..\Desktop\SOURCEC\test.sh" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
