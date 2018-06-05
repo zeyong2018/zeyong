@@ -22,6 +22,7 @@ void Test_BackwardEuler(void)
 
 	double y_prev[3] = { 7.1728e18, 7.1728e15, 2.};
 	double y_temp[3] = { 0,0,0 };
+	double y_iter_old[3] = { 0.,0,0 };
 	double **Jacobian;
 	int n = 3;
 	Jacobian = dmatrix(3, 3);
@@ -35,7 +36,7 @@ void Test_BackwardEuler(void)
 	fprintf(f_out, "%12s,%12s,%12s,%12s\n", "t", "n_ar", "n_ar+", "Te");
 	double y[3] = { 7.1728e18, 7.1728e15, 2. }; // initial guess for first step
 	int N_MAX = 1000;
-	double t;
+	double t,sum;
 	fprintf(f_out, "%12.4e,%12.4e,%12.4e,%12.4e\n", 0., y_prev[0], y_prev[1], y_prev[2]);
 	for (int i = 0; i < N_STEP; i++)
 	{
@@ -45,10 +46,18 @@ void Test_BackwardEuler(void)
 			targetFunc_ODE(n, y, y_prev, dh, G);
 			Jacobian_G(n, y, dh, Jacobian);
 			gaussElimination(n, Jacobian, G, y_temp);
+			sum = 0.;
 			for (int k = 0; k < n; k++)
 			{
+				y_iter_old[k] = y[k];
 				y[k] -= y_temp[k];
+				sum += fabs((y[k] - y_iter_old[k]) / (y[k] + TINY));
 			}
+			if (sum<=3.e-3)
+			{
+				break;
+			}
+
 
 		}
 		printf("%12.4e\t", t);
