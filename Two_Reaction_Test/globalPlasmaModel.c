@@ -219,7 +219,12 @@ void gaussElimination(int n, double **A, double *b, double *x)
 		}
 		x[i] = (A_extend[i][n] - temp) / A_extend[i][i];
 	}
-
+	
+	for (int i = 0; i < n; i++)
+	{
+		free(A_extend[i]);
+	}
+	free(A_extend);
 }
 
 double ** dmatrix(int m, int n) 

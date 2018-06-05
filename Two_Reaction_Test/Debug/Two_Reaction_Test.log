@@ -1,2 +1,7 @@
-﻿  Two_Reaction_Test.c
+﻿  Test_BackwardEuler.c
+c:\users\zeyon\source\repos\two_reaction_test\two_reaction_test\test_backwardeuler.c(1): warning C4005: '_CRT_SECURE_NO_WARNINGS': macro redefinition
+  c:\users\zeyon\source\repos\two_reaction_test\two_reaction_test\test_backwardeuler.c(1): note: command-line arguments:  see previous definition of '_CRT_SECURE_NO_WARNINGS'
+c:\users\zeyon\source\repos\two_reaction_test\two_reaction_test\test_backwardeuler.c(1): warning C4603: '_CRT_SECURE_NO_WARNINGS': macro is not defined or definition is different after precompiled header use
+  c:\users\zeyon\source\repos\two_reaction_test\two_reaction_test\test_backwardeuler.c(1): note: Add macro to precompiled header instead of defining here
+  c:\users\zeyon\source\repos\two_reaction_test\two_reaction_test\test_backwardeuler.c(2): note: use of precompiled header
   Two_Reaction_Test.vcxproj -> C:\Users\zeyon\source\repos\Two_Reaction_Test\Debug\Two_Reaction_Test.exe

@@ -27,9 +27,6 @@
     <ClInclude Include="globalPlasmaModel.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="basis.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.c">
@@ -45,6 +42,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Test_Newton.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Test_BackwardEuler.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
