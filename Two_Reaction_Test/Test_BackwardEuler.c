@@ -20,7 +20,11 @@ void Test_BackwardEuler(void)
 	me = 9.1095E-31;
 	m_arplus = 6.6335209e-26 - me;
 
-	double y_prev[3] = { 7.1728e18, 7.1728e15, 2.};
+	double n1, n2, t0;
+	n1 = 7.1728e18;
+	n2 = 7.1728e10;
+	t0 = 2.;
+	double y_prev[3] = { n1,n2,t0};
 	double y_temp[3] = { 0,0,0 };
 	double y_iter_old[3] = { 0.,0,0 };
 	double **Jacobian;
@@ -28,31 +32,81 @@ void Test_BackwardEuler(void)
 	Jacobian = dmatrix(3, 3);
 	double G[3] = { 0,0,0 };
 
-	double dh;
-	int N_STEP = 2000000;
-	dh = 2. / N_STEP;
+	double dh=1.e-6;
+	int N_STEP = ceil(5. / dh);
 	FILE *f_out;
 	f_out = fopen("Output.csv", "w");
 	fprintf(f_out, "%12s,%12s,%12s,%12s\n", "t", "n_ar", "n_ar+", "Te");
-	double y[3] = { 7.1728e18, 7.1728e15, 2. }; // initial guess for first step
+	double y[3] = { n1,n2,t0 }; // initial guess for first step
 	int N_MAX = 1000;
 	double t,sum;
 	fprintf(f_out, "%12.4e,%12.4e,%12.4e,%12.4e\n", 0., y_prev[0], y_prev[1], y_prev[2]);
+	double Te;
 	for (int i = 0; i < N_STEP; i++)
 	{
 		t = (i + 1)*dh;
 		for (int j = 0; j < N_MAX; j++)
 		{
+			printf("=====================================\n");
+			//Jacobian_F(n, y, Jacobian);
 			targetFunc_ODE(n, y, y_prev, dh, G);
 			Jacobian_G(n, y, dh, Jacobian);
+			Te = y[2];
+			printf("K for i=%d, j=%d\n", i, j);
+			printf("%12.4e\t%12.4e\n", (7.93e-14)*exp(-18.9 / (Te + TINY)), 2.6582E4);
+			printf("\n");
+			printf("DKDTE for i=%d, j=%d\n", i, j);
+			printf("%12.4e\t%12.4e\n", (7.93e-14)*exp(-18.9 / (Te + TINY))*18.9 / pow(Te + TINY, 2.), 0.);
+			printf("\n");
+			printf("KE for i=%d, j=%d\n", i, j);
+			printf("%12.4e\t%12.4e\n", (7.93e-14)*exp(-18.9 / (Te + TINY))*57.7141, 2.6582*(2. + 1. / 2 * (1 + log(m_arplus / 2 / PI / me)))*Te);
+			printf("\n");
+			printf("DKEDTE for i=%d, j=%d\n", i, j);
+			printf("%12.4e\t%12.4e\n", (7.93e-14)*exp(-18.9 / (Te + TINY))*18.9 / pow(Te + TINY, 2.)*57.7141, 2.6582*(2. + 1. / 2 * (1 + log(m_arplus / 2 / PI / me))));
+			printf("\n");
+			
+
+			printf("Jacobian for i=%d, j=%d\n", i, j);
+			for (int k = 0; k < 3; k++)
+			{
+				for (int l = 0; l < 3; l++)
+				{
+					printf("%12.4e\t", Jacobian[k][l]);
+				}
+				printf("\n");
+			}
+			printf("G for i=%d, j=%d\n", i, j);
+			for (int k = 0; k < 3; k++)
+			{
+				printf("%12.4e\t", G[k]);
+			}
+			printf("\n");
 			gaussElimination(n, Jacobian, G, y_temp);
+			
+			printf("y_temp for i=%d, j=%d\n", i, j);
+			for (int k = 0; k < 3; k++)
+			{
+				printf("%12.4e\t", y_temp[k]);
+			}
+			printf("\n");
+
+
 			sum = 0.;
 			for (int k = 0; k < n; k++)
 			{
 				y_iter_old[k] = y[k];
 				y[k] -= y_temp[k];
+				printf("y_new=%12.4e\t,y_old=%12.4e\t,diff=%12.4e\n", y[k], y_iter_old[k], (y[k] - y_iter_old[k]) / (y[k] + TINY));
 				sum += fabs((y[k] - y_iter_old[k]) / (y[k] + TINY));
+				printf("sum=%12.4e\n", sum);
 			}
+			printf("y for i=%d, j=%d\n", i, j);
+			for (int k = 0; k < 3; k++)
+			{
+				printf("%12.4e\t", y[k]);
+			}
+			printf("sum=%12.4e\n", sum);
+			printf("\n");
 			if (sum<=3.e-3)
 			{
 				break;

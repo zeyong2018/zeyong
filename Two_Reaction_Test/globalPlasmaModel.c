@@ -80,6 +80,10 @@ void targetFunc_ODE(int n, double *y, double *y_old, double dh, double *F)
 	Te_old = *(y_old + 2);
 	n_e_old = n_arplus_old;
 
+	// debuging code
+	double temp1, temp2, temp3, temp4, temp5;
+	
+
 
 	V = PI * pow(R, 2.)*L;
 	k1 = k1_cacl(n, y);
@@ -107,6 +111,9 @@ void Jacobian_G(int n, double *y, double dh, double **jacobian)
 	double dk1dte, dewdte;
 	dk1dte = (7.93e-14)*exp(-18.9 / (Te + TINY))*18.9 / pow(Te + TINY, 2.);
 	dewdte = 2. + 1. / 2 * (1 + log(m_arplus / 2 / PI / me));
+	
+	
+
 
 	jacobian[0][0] = 1.- dh*(-k1 * n_e - k_pump);
 	jacobian[0][1] = -dh*(-k1 * n_ar + k2);
